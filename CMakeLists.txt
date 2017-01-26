@@ -84,7 +84,39 @@ if(WIN32)
   add_definitions(-DGLEW_STATIC)
 endif(WIN32)
 
+message("COLLISION_INTERFACE_INCLUDE_DIR: ${COLLISION_INTERFACE_INCLUDE_DIR}")
+if(NOT COLLISION_INTERFACE_INCLUDE_DIR)
+  message( FATAL_ERROR "COLLISION_INTERFACE_INCLUDE_DIR not set")
+endif()
 
+
+include_directories(${COLLISION_INTERFACE_INCLUDE_DIR})
+
+message("COLLISION_LIBRARY_INCLUDE_DIR: ${COLLISION_LIBRARY_INCLUDE_DIR}")
+if(NOT COLLISION_LIBRARY_INCLUDE_DIR)
+  message( FATAL_ERROR "COLLISION_LIBRARY_INCLUDE_DIR not set")
+endif()
+
+
+include_directories(${COLLISION_LIBRARY_INCLUDE_DIR})
+
+
+message("COLLISION_LIBRARY_DIR: ${COLLISION_LIBRARY_DIR}")
+if(NOT COLLISION_LIBRARY_DIR)
+  message( FATAL_ERROR "COLLISION_LIBRARY_DIR not set")
+endif()
+
+
+link_directories(${COLLISION_LIBRARY_DIR})
+
+message("COLLISION_LIBRARIES: ${COLLISION_LIBRARIES}")
+if(NOT COLLISION_LIBRARIES)
+  message( FATAL_ERROR "COLLISION_LIBRARIES not set")
+endif()
+
+#set(HDRS include/collision_library.h)
+
+#set(SRCS include/collision_library.cpp)
 
 
 #######
@@ -108,6 +140,7 @@ set( HDRS
   application/utils.h
 
   testtorus.h
+  simulator.h
   scenario.h
   )
 
@@ -130,6 +163,7 @@ set( SRCS
   application/main.cpp
 
   scenario.cpp
+  simulator.cpp
   )
 
 #########
@@ -165,6 +199,7 @@ add_executable( ${CMAKE_PROJECT_NAME} ${HDRS} ${SRCS} ${HDRS_MOC} ${FORM_HDRS} $
 ######
 # Link
 target_link_libraries( ${CMAKE_PROJECT_NAME}
+  ${COLLISION_LIBRARIES}
   ${GMlib_LIBRARIES}
   Qt5::Core
   Qt5::Quick

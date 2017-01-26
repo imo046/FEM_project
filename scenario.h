@@ -3,10 +3,11 @@
 
 
 #include "application/gmlibwrapper.h"
-
+class Simulator;
 // qt
 #include <QObject>
-
+//stl
+#include <memory>
 
 
 class Scenario : public GMlibWrapper {
@@ -16,7 +17,8 @@ public:
 
   void    initializeScenario() override;
   void    cleanupScenario() override;
-
+private:
+    std::shared_ptr<Simulator> _simulator;
 };
 
 #endif // SCENARIO_H

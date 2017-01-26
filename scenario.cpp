@@ -1,5 +1,5 @@
 #include "scenario.h"
-
+#include "simulator.h"
 #include "testtorus.h"
 
 //// hidmanager
@@ -70,19 +70,22 @@ void Scenario::initializeScenario() {
 
 
   // Surface visualizers
-  auto surface_visualizer = new GMlib::PSurfNormalsVisualizer<float,3>;
+  //auto surface_visualizer = new GMlib::PSurfNormalsVisualizer<float,3>;
 
   // Surface
-  auto surface = new TestTorus;
-  surface->toggleDefaultVisualizer();
-  surface->insertVisualizer(surface_visualizer);
-  surface->replot(200,200,1,1);
-  scene()->insert(surface);
+//  auto surface = new TestTorus;
+//  surface->toggleDefaultVisualizer();
+//  surface->insertVisualizer(surface_visualizer);
+//  surface->replot(200,200,1,1);
+//  scene()->insert(surface);
 
-  surface->test01();
-
+//  surface->test01();
+  _simulator = std::make_shared<Simulator>(*scene());
+  _simulator->setupSimulator();
 }
 
 void Scenario::cleanupScenario() {
+
+  _simulator.reset();
 
 }
