@@ -43,6 +43,8 @@ GuiApplication::GuiApplication(int& argc, char **argv) : QGuiApplication(argc, a
   connect( this, &QGuiApplication::lastWindowClosed,
            this, &QGuiApplication::quit );
 
+
+
   _window.rootContext()->setContextProperty( "rc_name_model", &_scenario.rcNameModel() );
   _window.rootContext()->setContextProperty( "hidmanager_model", _hidmanager.getModel() );
   _window.setSource(QUrl("qrc:///qml/main.qml"));
@@ -97,10 +99,19 @@ GuiApplication::afterOnSceneGraphInitialized() {
   connect( &_window, &Window::signMouseReleased,      &_hidmanager, &StandardHidManager::registerMouseReleaseEvent );
   connect( &_window, &Window::signWheelEventOccurred, &_hidmanager, &StandardHidManager::registerWheelEvent );
 
+
+
   // Handle HID OpenGL actions; needs to have the OGL context bound;
   // QQuickWindow's beforeRendering singnal provides that on a DirectConnection
-  connect( &_window, &Window::beforeRendering,        &_hidmanager, &DefaultHidManager::triggerOGLActions,
+   connect( &_window, &Window::beforeRendering,        &_hidmanager, &DefaultHidManager::triggerOGLActions,
            Qt::DirectConnection );
+
+
+//FEM
+  connect( &_window, &Window::beforeRendering,
+           this,     &GuiApplication::replotSimulateGui,
+           Qt::DirectConnection );
+
 
   // Register an application close event in the hidmanager;
   // the QWindow must be closed instead of the application being quitted,
@@ -116,11 +127,94 @@ GuiApplication::afterOnSceneGraphInitialized() {
   connect( &_hidmanager,          SIGNAL(signOpenCloseHidHelp()),
            _window.rootObject(),  SIGNAL(toggleHidBindView()) );
 
+
+  // connect for key pressing!
+  connect( &_hidmanager, &DefaultHidManager::signGoUp,
+              this, &GuiApplication::sphereUp, Qt::DirectConnection );
+
+  connect( &_hidmanager, &DefaultHidManager::signGoDown,
+              this, &GuiApplication::sphereDown, Qt::DirectConnection );
+
+  connect( &_hidmanager, &DefaultHidManager::signGoLeft,
+              this, &GuiApplication::sphereLeft, Qt::DirectConnection );
+
+  connect( &_hidmanager, &DefaultHidManager::signGoRight,
+              this, &GuiApplication::sphereRight, Qt::DirectConnection );
+
+
+
+
+  connect( &_hidmanager, &DefaultHidManager::signTUp,
+              this, &GuiApplication::translateUp, Qt::DirectConnection );
+
+  connect( &_hidmanager, &DefaultHidManager::signTDown,
+              this, &GuiApplication::translateDown, Qt::DirectConnection );
+
+  connect( &_hidmanager, &DefaultHidManager::signTLeft,
+              this, &GuiApplication::translateLeft, Qt::DirectConnection );
+
+  connect( &_hidmanager, &DefaultHidManager::signTRight,
+              this, &GuiApplication::translateRight, Qt::DirectConnection );
+
+
+
+  //end of connects
+
   // Update RCPair name model
   _scenario.updateRCPairNameModel();
 
   // Start simulator
   _scenario.start();
+ }
+
+//button movement Up
+void GuiApplication::sphereUp()
+{
+    _scenario.sphereUp();
+}
+
+void GuiApplication::sphereDown()
+{
+    _scenario.sphereDown();
+}
+
+void GuiApplication::sphereLeft()
+{
+    _scenario.sphereLeft();
+}
+
+void GuiApplication::sphereRight()
+{
+    _scenario.sphereRight();
+
+}
+
+
+void GuiApplication::translateUp()
+{
+    _scenario.translateUp();
+}
+
+void GuiApplication::translateDown()
+{
+    _scenario.translateDown();
+}
+
+void GuiApplication::translateLeft()
+{
+    _scenario.translateLeft();
+}
+
+void GuiApplication::translateRight()
+{
+    _scenario.translateRight();
 }
 
 const GuiApplication& GuiApplication::instance() {  return *_instance; }
+
+
+//FEM
+void GuiApplication::replotSimulateGui()
+{
+    _scenario.simulateReplot();
+}

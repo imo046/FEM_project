@@ -114,9 +114,9 @@ if(NOT COLLISION_LIBRARIES)
   message( FATAL_ERROR "COLLISION_LIBRARIES not set")
 endif()
 
-#set(HDRS include/collision_library.h)
+set(HDRS include/collision_library.h)
 
-#set(SRCS include/collision_library.cpp)
+set(SRCS include/collision_library.cpp)
 
 
 #######
@@ -142,6 +142,11 @@ set( HDRS
   testtorus.h
   simulator.h
   scenario.h
+  femobject.h
+  node.h
+  box.h
+  cube.h
+
   )
 
 set( SRCS
@@ -163,7 +168,12 @@ set( SRCS
   application/main.cpp
 
   scenario.cpp
+  femobject.cpp
+  node.cpp
   simulator.cpp
+  box.cpp
+  cube.cpp
+
   )
 
 #########

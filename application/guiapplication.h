@@ -34,6 +34,7 @@ private:
   Scenario                                    _scenario;
   DefaultHidManager                           _hidmanager;
 
+
 private slots:
   virtual void                                onSceneGraphInitialized();
   virtual void                                onSceneGraphInvalidated();
@@ -45,8 +46,27 @@ signals:
 
 private:
   static std::unique_ptr<GuiApplication>      _instance;
+
+//button movement
+  void sphereUp();
+  void sphereDown();
+  void sphereLeft();
+  void sphereRight();
+
+  void sphereThrough();
+
+
+  void translateUp();
+  void translateDown();
+  void translateLeft();
+  void translateRight();
+
+//FEM
+  void replotSimulateGui();
+
 public:
   static const GuiApplication&                instance();
+
 };
 
 #endif // GUIAPPLICATION_H

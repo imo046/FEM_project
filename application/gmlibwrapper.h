@@ -72,7 +72,7 @@ public:
   RenderCamPair&                                    createRCPair( const QString& name );
   void                                              updateRCPairNameModel();
 
-  void                                              render( const QString& name, const QRect& viewport,
+ void                                       render( const QString& name, const QRect& viewport,
                                                             GMlib::RenderTarget& target );
 
   void                                              prepare();
