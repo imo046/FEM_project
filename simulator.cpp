@@ -384,7 +384,7 @@ void Simulator::setupSimulator()
     _scene.insert(_obj1);
     _scene.insert(_obj2);
 
-
+/**
 //   _dspheres.push_back(std::make_unique<DynSphere>());
 
 
@@ -442,7 +442,7 @@ void Simulator::setupSimulator()
 //       sphere->_sphereController = &_controller;
 //       prepareAndInsert(sphere , 10, 10, 1 ,1);
 //   }
-
+**/
 
 
 /**

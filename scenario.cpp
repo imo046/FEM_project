@@ -177,43 +177,43 @@ void Scenario::simulateReplot()
 }
 
 //sphere up
-void Scenario::sphereUp(){
+//void Scenario::sphereUp(){
 
-    _simulator->_controlSphere->moveUp();
-}
+//    _simulator->_controlSphere->moveUp();
+//}
 
-void Scenario::sphereDown()
-{
-   _simulator->_controlSphere->moveDown();
-}
+//void Scenario::sphereDown()
+//{
+//   _simulator->_controlSphere->moveDown();
+//}
 
-void Scenario::sphereLeft()
-{
-    _simulator->_controlSphere->moveLeft();
-}
+//void Scenario::sphereLeft()
+//{
+//    _simulator->_controlSphere->moveLeft();
+//}
 
-void Scenario::sphereRight()
-{
-    _simulator->_controlSphere->moveRight();
-}
+//void Scenario::sphereRight()
+//{
+//    _simulator->_controlSphere->moveRight();
+//}
 
-//translate
-void Scenario::translateUp()
-{
-     _simulator->_controlSphere->translateUp();
-}
+////translate
+//void Scenario::translateUp()
+//{
+//     _simulator->_controlSphere->translateUp();
+//}
 
-void Scenario::translateDown()
-{
-     _simulator->_controlSphere->translateDown();
-}
+//void Scenario::translateDown()
+//{
+//     _simulator->_controlSphere->translateDown();
+//}
 
-void Scenario::translateLeft()
-{
-     _simulator->_controlSphere->translateLeft();
-}
+//void Scenario::translateLeft()
+//{
+//     _simulator->_controlSphere->translateLeft();
+//}
 
-void Scenario::translateRight()
-{
-     _simulator->_controlSphere->translateRight();
-}
+//void Scenario::translateRight()
+//{
+//     _simulator->_controlSphere->translateRight();
+//}

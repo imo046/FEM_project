@@ -1,11 +1,11 @@
 #ifndef SIMULATOR_H
 #define SIMULATOR_H
-#include <collision_library.h>
+//#include <collision_library.h>
 #include "femobject.h"
 #include <gmParametricsModule>
 #include <vector>
 
-#include "box.h"
+//#include "box.h"
 
 
 
@@ -80,16 +80,16 @@ _controller.add(obj.get());
 
 
 //helper types
-using DynSphere = collision::DynamicPhysObject<GMlib::PSphere<float>>;
-using Plane = collision::StaticPhysObject<GMlib::PPlane<float>>;
-using Cylinder = collision::StaticPhysObject<GMlib::PCylinder<float>>;
+//using DynSphere = collision::DynamicPhysObject<GMlib::PSphere<float>>;
+//using Plane = collision::StaticPhysObject<GMlib::PPlane<float>>;
+//using Cylinder = collision::StaticPhysObject<GMlib::PCylinder<float>>;
 
 
-using DynSphereVector = std::vector<std::unique_ptr<DynSphere>>;
-using PlaneVector =  std::vector<std::unique_ptr<Plane>>;
-using BoxVector =  std::vector<std::unique_ptr<Box>>;
+//using DynSphereVector = std::vector<std::unique_ptr<DynSphere>>;
+//using PlaneVector =  std::vector<std::unique_ptr<Plane>>;
+//using BoxVector =  std::vector<std::unique_ptr<Box>>;
 
-using DynCylinderVector = std::vector<std::unique_ptr<Cylinder>>;
+//using DynCylinderVector = std::vector<std::unique_ptr<Cylinder>>;
 
 /*class SimulationController : public GMlib::SceneObject{
     GM_SCENEOBJECT(SimulationController)
@@ -116,18 +116,18 @@ public:
     //FEM
     void simulateReplotSim();
 
-    collision::DynamicPhysObject<GMlib::PSphere<float> >*   _controlSphere;
+//    collision::DynamicPhysObject<GMlib::PSphere<float> >*   _controlSphere;
 
 
 
 private:
     GMlib::Scene&                    _scene;
-    collision::MyController         _controller;
+   // collision::MyController         _controller;
 
-    DynSphereVector                  _dspheres;
-    PlaneVector                      _planes;
-    BoxVector                        _box;
-    DynCylinderVector                _cylinders;
+//    DynSphereVector                  _dspheres;
+//    PlaneVector                      _planes;
+//    BoxVector                        _box;
+//    DynCylinderVector                _cylinders;
 
     FEMobject*    _obj1;
     FEMobject*    _obj2;
@@ -144,17 +144,17 @@ void Simulator::prepareAndInsert(const std::unique_ptr<T>& obj, int m1, int m2, 
     obj->toggleDefaultVisualizer();
     obj->replot(m1,m2,d1,d2);
     _scene.insert(obj.get());
-    _controller.add(obj.get());
+ //   _controller.add(obj.get());
 }
 
-template <> inline
-void Simulator::prepareAndInsert<Box>(const std::unique_ptr<Box>& obj, int m1, int m2, int d1, int d2)
-{
-    _scene.insert(obj.get());
+//template <> inline
+//void Simulator::prepareAndInsert<Box>(const std::unique_ptr<Box>& obj, int m1, int m2, int d1, int d2)
+//{
+//    _scene.insert(obj.get());
 
-    for (const  auto& plane : obj->getPlanes())
-        _controller.add(plane.get());
-}
+//    for (const  auto& plane : obj->getPlanes())
+//        _controller.add(plane.get());
+//}
 
 
 

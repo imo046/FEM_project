@@ -1,55 +1,55 @@
-#ifndef BOX_H
-#define BOX_H
+//#ifndef BOX_H
+//#define BOX_H
+////#include <vector>
+
+
 //#include <vector>
 
+//#include <parametrics/gmpplane>
+//#include <parametrics/gmpsphere>
+//#include <parametrics/gmpcylinder>
+//#include <scene/gmsceneobject>
 
-#include <vector>
+////#include <collision_interface.h>
 
-#include <parametrics/gmpplane>
-#include <parametrics/gmpsphere>
-#include <parametrics/gmpcylinder>
-#include <scene/gmsceneobject>
+//#include <memory>
 
-#include <collision_interface.h>
+//class Box : public GMlib::SceneObject {
+//    GM_SCENEOBJECT(Box)
+//    public:
+//    // 6 planes
+//    std::vector<std::shared_ptr<collision::StaticPPlane>> planes;
 
-#include <memory>
+//    //std::vector<std::shared_ptr<collision::StaticPSphere>> spheres;
 
-class Box : public GMlib::SceneObject {
-    GM_SCENEOBJECT(Box)
-    public:
-    // 6 planes
-    std::vector<std::shared_ptr<collision::StaticPPlane>> planes;
+//    // 12 edges
+//    //  std::vector <GMlib::PCylinder<float>> cylinders;
+//    // 8 vertices
+//    // std::vector <GMlib::PSphere<float>> spheres;
 
-    //std::vector<std::shared_ptr<collision::StaticPSphere>> spheres;
+//    double x;
+//    double y;
+//    double z;
 
-    // 12 edges
-    //  std::vector <GMlib::PCylinder<float>> cylinders;
-    // 8 vertices
-    // std::vector <GMlib::PSphere<float>> spheres;
+//    //double a;
 
-    double x;
-    double y;
-    double z;
+//    GMlib::Material color;
 
-    //double a;
+//    Box(double, double, double, GMlib::Material);
 
-    GMlib::Material color;
+//    ~Box();
 
-    Box(double, double, double, GMlib::Material);
+//    void create();
 
-    ~Box();
+//    std::vector<std::shared_ptr<collision::StaticPPlane> > getPlanes() const;
 
-    void create();
+//    //std::vector<std::shared_ptr<collision::StaticPSphere> > getSpheres() const;
 
-    std::vector<std::shared_ptr<collision::StaticPPlane> > getPlanes() const;
+//protected:
+//    // void localSimulate(double dt) override;
 
-    //std::vector<std::shared_ptr<collision::StaticPSphere> > getSpheres() const;
-
-protected:
-    // void localSimulate(double dt) override;
-
-private:
+//private:
 
 
-}; // END class Box
-#endif // BOX_H
+//}; // END class Box
+//#endif // BOX_H

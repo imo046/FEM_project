@@ -129,32 +129,32 @@ GuiApplication::afterOnSceneGraphInitialized() {
 
 
   // connect for key pressing!
-  connect( &_hidmanager, &DefaultHidManager::signGoUp,
-              this, &GuiApplication::sphereUp, Qt::DirectConnection );
+//  connect( &_hidmanager, &DefaultHidManager::signGoUp,
+//              this, &GuiApplication::sphereUp, Qt::DirectConnection );
 
-  connect( &_hidmanager, &DefaultHidManager::signGoDown,
-              this, &GuiApplication::sphereDown, Qt::DirectConnection );
+//  connect( &_hidmanager, &DefaultHidManager::signGoDown,
+//              this, &GuiApplication::sphereDown, Qt::DirectConnection );
 
-  connect( &_hidmanager, &DefaultHidManager::signGoLeft,
-              this, &GuiApplication::sphereLeft, Qt::DirectConnection );
+//  connect( &_hidmanager, &DefaultHidManager::signGoLeft,
+//              this, &GuiApplication::sphereLeft, Qt::DirectConnection );
 
-  connect( &_hidmanager, &DefaultHidManager::signGoRight,
-              this, &GuiApplication::sphereRight, Qt::DirectConnection );
-
-
+//  connect( &_hidmanager, &DefaultHidManager::signGoRight,
+//              this, &GuiApplication::sphereRight, Qt::DirectConnection );
 
 
-  connect( &_hidmanager, &DefaultHidManager::signTUp,
-              this, &GuiApplication::translateUp, Qt::DirectConnection );
 
-  connect( &_hidmanager, &DefaultHidManager::signTDown,
-              this, &GuiApplication::translateDown, Qt::DirectConnection );
 
-  connect( &_hidmanager, &DefaultHidManager::signTLeft,
-              this, &GuiApplication::translateLeft, Qt::DirectConnection );
+//  connect( &_hidmanager, &DefaultHidManager::signTUp,
+//              this, &GuiApplication::translateUp, Qt::DirectConnection );
 
-  connect( &_hidmanager, &DefaultHidManager::signTRight,
-              this, &GuiApplication::translateRight, Qt::DirectConnection );
+//  connect( &_hidmanager, &DefaultHidManager::signTDown,
+//              this, &GuiApplication::translateDown, Qt::DirectConnection );
+
+//  connect( &_hidmanager, &DefaultHidManager::signTLeft,
+//              this, &GuiApplication::translateLeft, Qt::DirectConnection );
+
+//  connect( &_hidmanager, &DefaultHidManager::signTRight,
+//              this, &GuiApplication::translateRight, Qt::DirectConnection );
 
 
 
@@ -168,47 +168,47 @@ GuiApplication::afterOnSceneGraphInitialized() {
  }
 
 //button movement Up
-void GuiApplication::sphereUp()
-{
-    _scenario.sphereUp();
-}
+//void GuiApplication::sphereUp()
+//{
+//    _scenario.sphereUp();
+//}
 
-void GuiApplication::sphereDown()
-{
-    _scenario.sphereDown();
-}
+//void GuiApplication::sphereDown()
+//{
+//    _scenario.sphereDown();
+//}
 
-void GuiApplication::sphereLeft()
-{
-    _scenario.sphereLeft();
-}
+//void GuiApplication::sphereLeft()
+//{
+//    _scenario.sphereLeft();
+//}
 
-void GuiApplication::sphereRight()
-{
-    _scenario.sphereRight();
+//void GuiApplication::sphereRight()
+//{
+//    _scenario.sphereRight();
 
-}
+//}
 
 
-void GuiApplication::translateUp()
-{
-    _scenario.translateUp();
-}
+//void GuiApplication::translateUp()
+//{
+//    _scenario.translateUp();
+//}
 
-void GuiApplication::translateDown()
-{
-    _scenario.translateDown();
-}
+//void GuiApplication::translateDown()
+//{
+//    _scenario.translateDown();
+//}
 
-void GuiApplication::translateLeft()
-{
-    _scenario.translateLeft();
-}
+//void GuiApplication::translateLeft()
+//{
+//    _scenario.translateLeft();
+//}
 
-void GuiApplication::translateRight()
-{
-    _scenario.translateRight();
-}
+//void GuiApplication::translateRight()
+//{
+//    _scenario.translateRight();
+//}
 
 const GuiApplication& GuiApplication::instance() {  return *_instance; }
 
